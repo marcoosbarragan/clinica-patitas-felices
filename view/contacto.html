@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /> <!-- Configuración de caracteres -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Ajuste para móviles -->
+  <title>Contacto - Clínica Patitas Felices</title> <!-- Título de la página -->
+
+  <!-- Estilos principales -->
+  <link rel="stylesheet" href="../css/estilos.css" />
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+
+  <!-- Estilos internos para el mapa -->
+  <style>
+    #mapa {
+      width: 100%;
+      height: 400px;
+      margin-bottom: 1em;
+    }
+    .nota-mapa {
+      font-size: 0.9em;
+      color: #555;
+      background-color: #f4f4f4;
+      padding: 0.8em;
+      border-left: 4px solid var(--color-principal);
+      margin-bottom: 2em;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado con logo y menú -->
+  <header>
+    <div class="logo-header">
+      <img src="../logo-clinica1.png" alt="Logo Clínica Patitas Felices" width="120" height="50" />
+      <h1>Clínica Patitas Felices</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="presupuesto.html">Presupuesto</a></li>
+        <li><a href="contacto.html" class="activo">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <!-- Sección de ubicación -->
+    <section id="ubicacion">
+      <h2>¿Dónde estamos?</h2>
+      <p>Puedes encontrarnos en nuestra clínica o escribirnos directamente.</p>
+
+      <!-- Mapa con role y aria-label -->
+      <div id="mapa" role="region" aria-label="Mapa de ubicación de la clínica"></div>
+
+      <!-- Nota explicativa sobre el mapa -->
+      <p class="nota-mapa">
+        <strong>Mapa:</strong> El mapa <strong>sí calcula la ruta hacia la ubicación del usuario</strong>, siempre que este haya concedido los permisos de geolocalización al navegador. En caso contrario, la ubicación deberá introducirse manualmente.
+      </p>
+    </section>
+
+    <!-- Sección de datos de contacto -->
+    <section id="datos-contacto">
+      <h2>Información de contacto</h2>
+      <address>
+        <p><strong>Clínica Patitas Felices</strong></p>
+        <p>Calle Bienestar 123, Sevilla</p>
+        <p>📞 Teléfono: <a href="tel:+34955123456">955 123 456</a></p>
+        <p>✉️ Email: <a href="mailto:contacto@patitasfelices.com">contacto@patitasfelices.com</a></p>
+      </address>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <!-- Redes sociales -->
+    <div class="redes-sociales">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- Información de contacto -->
+    <div class="info-contacto">
+      <p><strong>Clínica Patitas Felices</strong></p>
+      <p>Calle Bienestar 123, Sevilla</p>
+      <p>📞 Teléfono: <a href="tel:+34955123456">955 123 456</a></p>
+      <p>✉️ Email: <a href="mailto:contacto@patitasfelices.com">contacto@patitasfelices.com</a></p>
+    </div>
+
+    <!-- Información legal -->
+    <div class="legal">
+      <p><a href="aviso-legal.html">Aviso Legal</a></p>
+      <p>© 2025 Clínica Patitas Felices – Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <!-- Scripts para el mapa -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+  <script>
+    // Inicialización del mapa
+    const mapa = L.map("mapa").setView([37.3861, -5.9819], 13);
+
+    // Capa base de OpenStreetMap
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "© OpenStreetMap"
+    }).addTo(mapa);
+
+    // Marcador de la clínica
+    const destino = L.latLng(37.3861, -5.9819); // Clínica Patitas Felices
+    L.marker(destino)
+      .addTo(mapa)
+      .bindPopup("Clínica Patitas Felices")
+      .openPopup();
+
+    // Geolocalización del usuario
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function (pos) {
+          const origen = L.latLng(pos.coords.latitude, pos.coords.longitude);
+          L.Routing.control({
+            waypoints: [origen, destino],
+            routeWhileDragging: false,
+            show: false,
+            createMarker: function () { return null; }
+          }).addTo(mapa);
+        },
+        function () {
+          console.log("Permiso de geolocalización denegado o no disponible.");
+        }
+      );
+    } else {
+      console.log("Geolocalización no soportada por el navegador.");
+    }
+  </script>
+</body>
+</html>
