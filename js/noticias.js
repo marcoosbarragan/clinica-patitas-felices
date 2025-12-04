@@ -1,5 +1,5 @@
 // Cargar noticias desde el archivo JSON en la carpeta datos
-fetch("../datos/noticias.json")
+fetch("datos/noticias.json")
   .then(response => response.json())
   .then(noticias => {
     const contenedor = document.getElementById("contenedorNoticias");
@@ -20,4 +20,5 @@ fetch("../datos/noticias.json")
       contenedor.appendChild(noticiaDiv);
     });
   })
+
   .catch(error => console.error("Error cargando noticias:", error));
