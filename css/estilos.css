@@ -1,0 +1,254 @@
+/* Variables de color principal y hover */
+:root {
+  --color-principal: #2A6EBB;
+  --color-hover: #1F5BA0;
+}
+
+/* Reset general de márgenes y relleno */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url("../images/fondoclinica.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+  padding-top: 70px; /* espacio para el header fijo */
+}
+
+/* Encabezado */
+header {
+  background-color: var(--color-principal);
+  color: white;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Redimensionamos el logo con CSS (HTML lleva dimensiones originales) */
+.logo-header img {
+  width: 120px;   /* tamaño visual */
+  height: 50px;   /* tamaño visual */
+}
+
+.logo-header h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Navegación */
+nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 0.5em 1em;
+}
+
+nav ul li a.activo,
+nav ul li a:hover {
+  background-color: var(--color-hover);
+  border-radius: 4px;
+}
+
+/* Contenido principal */
+main {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 40px auto 0 auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+/* Noticias */
+.noticia {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.noticia h3 {
+  color: var(--color-principal);
+  margin-bottom: 0.5rem;
+}
+
+.noticia p {
+  margin: 0;
+  color: #333;
+}
+
+/* Formularios */
+fieldset {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 1em;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.4em;
+  margin-top: 0.3em;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+}
+
+/* Alineación de extras con checkbox a la derecha */
+.extra-opcion {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.extra-opcion label {
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.extra-opcion input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+  margin-left: auto; /* empuja el checkbox al extremo derecho */
+}
+
+/* Botones del formulario */
+.botones {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.botones button {
+  padding: 0.6em 1.2em;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-principal);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.botones button:hover {
+  background-color: var(--color-hover);
+}
+
+/* Galería */
+.galeria-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 20px;
+}
+
+.galeria-item {
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+  padding-bottom: 6px;
+}
+
+.galeria-item:hover {
+  transform: scale(1.02);
+}
+
+/* Redimensionamos las imágenes de la galería con CSS (HTML lleva dimensiones originales) */
+.galeria-item img {
+  width: 250px;   /* tamaño visual */
+  height: 250px;  /* tamaño visual */
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 6px;
+}
+
+.galeria-item figcaption {
+  font-size: 0.95em;
+  font-weight: 600;
+  color: var(--color-principal);
+  padding: 4px 8px;
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-principal);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer .redes-sociales {
+  margin-bottom: 1em;
+}
+
+footer .redes-sociales a {
+  margin: 0 10px;
+  font-size: 1.2em;
+}
+
+footer .info-contacto p,
+footer .legal p {
+  margin: 0.3em 0;
+}
+
+/* Mapa y nota explicativa */
+#mapa {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 1em;
+}
+
+.nota-mapa {
+  font-size: 0.9em;
+  color: #555;
+  background-color: #f4f4f4;
+  padding: 0.8em;
+  border-left: 4px solid var(--color-principal);
+  margin-bottom: 2em;
+  border-radius: 4px;
+}

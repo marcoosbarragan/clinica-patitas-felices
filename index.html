@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /> <!-- Configuración de caracteres -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Ajuste para móviles -->
+  <title>Clínica Patitas Felices</title> <!-- Título de la página -->
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="css/estilos.css" />
+
+  <!-- Icono del sitio -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- Librería de iconos externos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Encabezado con logo y menú -->
+  <header>
+    <div class="logo-header">
+      <!-- Dimensiones originales del logo -->
+      <img src="logo-clinica1.png" alt="Logo Clínica Patitas Felices" width="240" height="100" />
+      <h1>Clínica Patitas Felices</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="activo">Inicio</a></li>
+        <li><a href="view/galeria.html">Galería</a></li>
+        <li><a href="view/presupuesto.html">Presupuesto</a></li>
+        <li><a href="view/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <!-- Sección de presentación -->
+    <section id="presentacion">
+      <h2>Bienvenidos a nuestra clínica veterinaria</h2>
+      <p>En Patitas Felices cuidamos de tus mejores amigos con profesionalismo y cariño. 🐾</p>
+    </section>
+
+    <!-- Sección de servicios -->
+    <section id="servicios">
+      <h2>Servicios</h2>
+      <ul>
+        <li>Consultas médicas</li>
+        <li>Vacunación</li>
+        <li>Peluquería</li>
+        <li>Cirugías menores</li>
+      </ul>
+    </section>
+
+    <!-- Sección de testimonios -->
+    <section id="testimonios">
+      <h2>Testimonios</h2>
+      <blockquote cite="#testimonio-clara">&ldquo;¡Mi gato volvió feliz y limpio!&rdquo; — Clara</blockquote>
+      <blockquote cite="#testimonio-diego">&ldquo;Excelente trato. Volveré seguro.&rdquo; — Diego</blockquote>
+    </section>
+
+    <!-- Sección de noticias dinámicas -->
+    <section id="noticias">
+      <h2>Últimas noticias</h2>
+      <!-- Contenedor donde se pintarán las noticias -->
+      <div id="contenedorNoticias" aria-live="polite"></div>
+
+      <!-- Mensaje si el usuario no tiene JavaScript -->
+      <noscript>
+        <p>Activa JavaScript para ver las últimas noticias.</p>
+      </noscript>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <!-- Redes sociales -->
+    <div class="redes-sociales">
+      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- Información de contacto -->
+    <div class="info-contacto">
+      <p><strong>Clínica Patitas Felices</strong></p>
+      <p>Calle Bienestar 123, Sevilla</p>
+      <p>📞 Teléfono: <a href="tel:+34955123456">955 123 456</a></p>
+      <p>✉️ Email: <a href="mailto:contacto@patitasfelices.com">contacto@patitasfelices.com</a></p>
+    </div>
+
+    <!-- Información legal -->
+    <div class="legal">
+      <p><a href="view/aviso-legal.html">Aviso Legal</a></p>
+      <p>© 2025 Clínica Patitas Felices – Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <!-- Script para cargar noticias (ruta relativa desde la raíz) -->
+  <script src="js/noticias.js"></script>
+</body>
+</html>

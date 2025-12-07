@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /> <!-- Configuración de caracteres -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Ajuste para móviles -->
+  <title>Presupuesto - Clínica Patitas Felices</title> <!-- Título de la página -->
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="../css/estilos.css" />
+
+  <!-- Icono del sitio -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+
+  <!-- Librería de iconos externos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Encabezado con logo y menú -->
+  <header>
+    <div class="logo-header">
+      <!-- Dimensiones originales del logo -->
+      <img src="../logo-clinica1.png" alt="Logo Clínica Patitas Felices" width="240" height="100" />
+      <h1>Clínica Patitas Felices</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="presupuesto.html" class="activo">Presupuesto</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <section id="presupuesto">
+      <h2>Calcula tu presupuesto</h2>
+
+      <!-- Formulario de presupuesto -->
+      <form id="formularioPresupuesto" action="#" method="post" autocomplete="on">
+        <!-- Datos de contacto -->
+        <fieldset>
+          <legend>Datos de contacto</legend>
+
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required minlength="2" />
+
+          <label for="apellidos">Apellidos:</label>
+          <input type="text" id="apellidos" name="apellidos" required minlength="2" />
+
+          <label for="telefono">Teléfono:</label>
+          <input type="tel" id="telefono" name="telefono" required inputmode="tel" />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required autocomplete="email" />
+        </fieldset>
+
+        <!-- Opciones del servicio -->
+        <fieldset>
+          <legend>Opciones del servicio</legend>
+
+          <label for="producto">Producto:</label>
+          <select id="producto" name="producto" required>
+            <option value="" selected disabled>Seleccione una opción</option>
+            <option value="consulta" data-precio="25">Consulta - 25€</option>
+            <option value="peluqueria" data-precio="30">Peluquería - 30€</option>
+            <option value="vacunas" data-precio="20">Vacunas - 20€</option>
+          </select>
+
+          <label for="plazo">Plazo (días):</label>
+          <input type="number" id="plazo" name="plazo" min="1" max="30" />
+
+          <!-- Extras con checkbox -->
+          <div class="extra-opcion">
+            <label for="recogida">Recogida a domicilio (+10€)</label>
+            <input type="checkbox" class="extra" id="recogida" value="10" />
+          </div>
+          <div class="extra-opcion">
+            <label for="informe">Informe personalizado (+5€)</label>
+            <input type="checkbox" class="extra" id="informe" value="5" />
+          </div>
+
+          <!-- Resultado del cálculo -->
+          <p><strong>Total estimado:</strong> <span id="resultado" aria-live="polite">0 €</span></p>
+        </fieldset>
+
+        <!-- Condiciones -->
+        <div class="condiciones">
+          <input type="checkbox" id="condiciones" required />
+          <label for="condiciones">Acepto la política de privacidad</label>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="botones">
+          <button type="submit">Enviar</button>
+          <button type="reset">Limpiar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <!-- Redes sociales -->
+    <div class="redes-sociales">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- Información de contacto -->
+    <div class="info-contacto">
+      <p><strong>Clínica Patitas Felices</strong></p>
+      <p>Calle Bienestar 123, Sevilla</p>
+      <p>📞 Teléfono: <a href="tel:+34955123456">955 123 456</a></p>
+      <p>✉️ Email: <a href="mailto:contacto@patitasfelices.com">contacto@patitasfelices.com</a></p>
+    </div>
+
+    <!-- Información legal -->
+    <div class="legal">
+      <p><a href="aviso-legal.html">Aviso Legal</a></p>
+      <p>© 2025 Clínica Patitas Felices – Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <!-- Scripts para validaciones y cálculo -->
+  <script src="../js/validaciones.js"></script>
+  <script src="../js/presupuesto.js"></script>
+</body>
+</html>
